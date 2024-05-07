@@ -1,5 +1,26 @@
 # writer
 
+```
+async function main(){
+
+  const w = writer()
+  let response = await w.list()
+  console.log('list',response)
+  response = await w.get('aiueo.txt',true)
+  console.log('get',response)  
+  response = await w.get('aiueo.txt')
+  console.log('get simple',response)  
+
+  response = await w.set('aiueo.txt','foohaafoohaa1234\n日本語1234')
+  console.log('set',response)
+
+}
+
+var btn = document.createElement('button')
+btn.textContent = 'done'
+btn.onclick = main
+document.body.append(btn)
+```
 
 ## interface
 ```
