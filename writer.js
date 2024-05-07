@@ -126,3 +126,78 @@ function writer(owner,repo,token){
 }
 
 window.writer = writer;
+window.getGithubInfo = getGithubInfo //util
+window.replaceExtension = replaceExtension //
+
+/////////////////////////
+/////////////////////////
+/////////////////////////
+function pureUrl(url){
+  return url.split('?')[0]  
+}
+function isEncodedUrl(url) {
+  return /%[0-9A-Fa-f]{2}/.test(url);
+}
+function treatUrl(url){
+  url = pureUrl(url)
+  url = isEncodedUrl(url)?decodeURIComponent(url):url
+  return url;
+}
+
+function replaceExtension(filename, newExtension) {
+  // 最後のドット（.）以降の部分を置き換えるための正規表現
+  const regex = /\.[^.]+$/;
+  // 新しい拡張子を指定されたものに置き換える
+  return filename.replace(regex, newExtension);
+}
+
+/*
+// 例としてファイル名を渡して拡張子を入れ替える
+const filename = 'xyz.old.html';
+const newFilename = replaceExtension(filename, '.new.html');
+console.log(newFilename); // 出力: xyz.old.new.html
+*/
+
+function getGithubInfo(url) {
+  //https://{owner}.github.io/{repo}/{path}
+  //https://hashsan.github.io/hermes/バレエあらすじ.html
+  //owner = hashsan
+  //repo = hermes
+  //path = バレエあらすじ.html
+
+  url = treatUrl(url)
+  const regex = /https:\/\/([^/]+)\.github\.io\/([^/]+)\/(.+)/;
+  const matches = url.match(regex);
+  if (matches && matches.length === 4) {
+    const owner = matches[1];
+    const repo = matches[2];
+    const path = matches[3];
+    return { owner, repo, path };
+  } else {
+    return null; // URLが適切な形式ではない場合はnullを返す
+  }
+}
+
+
+/*
+// 例としてURLを渡して情報を取得
+const url = 'https://hashsan.github.io/hermes/%E3%83%90%E3%83%AC%E3%82%A8%E3%81%82%E3%82%89%E3%81%99%E3%81%98.html';
+let {owner,repo,path} = getGithubInfo(url);
+path = replaceExtension(path,'.md')
+console.log(owner,repo,path);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
