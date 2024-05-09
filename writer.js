@@ -100,9 +100,9 @@ function writer(owner,repo,token){
   }
   /////////////////////
   /////////////////////
-  async function set(path,text){
+  async function set(path,text,sha){
     try{
-      const sha = await _sha(path)
+       sha = sha || await _sha(path)
       const content = encode(text)
       const message = text.slice(0,100);
 
@@ -115,7 +115,7 @@ function writer(owner,repo,token){
         sha
       });
 
-      return response;
+      return response.data.content.sha; //
     }catch(error){
       console.error(error)
       return null;
