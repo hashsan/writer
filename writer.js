@@ -1,6 +1,13 @@
 import "https://hashsan.github.io/counter/getUUID.js"
 import { Octokit } from "https://esm.sh/@octokit/rest";
 ////
+
+// history
+// v0 : launched
+// v1 : rename対応、リネームはshaが維持されていれば変更可能なので、set関数は sha = await set() を返す。
+console.log('writer v1') // 分かるように
+///
+
 // Base64エンコードを行う関数
 function encode(str) {
   // 文字列をUTF-8エンコードしてバイト配列に変換
