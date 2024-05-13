@@ -1,5 +1,8 @@
 # writer
 
+## function writer(owner,repo,token)
+## var {owner,repo} = getGithubInfo(url)
+
 ```
 async function main(){
 
