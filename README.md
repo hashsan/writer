@@ -1,8 +1,8 @@
 # writer
 
 ```
+import "https://hashsan.github.io/writer/dropAndClip.js"
 import "https://hashsan.github.io/writer/writer.js"
-
 ```
 ## function writer(owner,repo,token)
 ## var {owner,repo} = getGithubInfo(url)
