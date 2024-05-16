@@ -1,5 +1,18 @@
 # writer
 
+
+## github.ioの場合はautoWriterが使える
+```
+import "https://hashsan.github.io/writer/dropAndClip.js"
+import "https://hashsan.github.io/writer/autoWriter.js"
+
+if(window.autoWriter){
+ autoWriter.get
+ autoWriter.set
+ autoWriter.list
+}
+```
+
 ```
 import "https://hashsan.github.io/writer/dropAndClip.js"
 import "https://hashsan.github.io/writer/writer.js"
