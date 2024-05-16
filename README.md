@@ -10,6 +10,7 @@ if(window.autoWriter){
  autoWriter.get
  autoWriter.set
  autoWriter.list
+ autoWriter.name //拡張子が付いていないのでつけること。たとえば「index.html」なら「index」となる。
 }
 ```
 
